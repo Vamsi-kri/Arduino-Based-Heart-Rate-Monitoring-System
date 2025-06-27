@@ -64,9 +64,72 @@ A low-cost, portable heart rate monitor built with Arduino and a 16x2 LCD. This 
 
 ## Getting Started
 
-1. **Wiring:** Connect components as described above.
-2. **Programming:** Upload the Arduino code (see `/src` directory) to your Uno.
-3. **Power Up:** Supply 5V external power for best LCD brightness and sensor stability.
-4. **Measure:** Place your finger, press Start, and view your heart rate.
+
+### ✅ **LCD (16x2) Display to Arduino UNO:**
+
+| LCD Pin               | Arduino UNO Pin                        |
+| --------------------- | -------------------------------------- |
+| RS (Register Select)  | Pin 6                                  |
+| E (Enable)            | Pin 5                                  |
+| D4                    | Pin 3                                  |
+| D5                    | Pin 2                                  |
+| D6                    | Pin 1                                  |
+| D7                    | Pin 0                                  |
+| VSS (Ground)          | GND                                    |
+| VDD (+5V)             | 5V                                     |
+| VO (Contrast Control) | Middle pin of 2K Potentiometer (RPOT1) |
+| RW (Read/Write)       | GND (for Write Mode)                   |
+| LED+ (Backlight +)    | Through 220Ω resistor (R1) to 5V       |
+| LED- (Backlight -)    | GND                                    |
+
+---
+
+### ✅ **Pulse Sensor:**
+
+| Pulse Sensor Wire | Arduino Pin       |
+| ----------------- | ----------------- |
+| Signal            | A0 (Analog Input) |
+| VCC               | 5V                |
+| GND               | GND               |
+
+---
+
+### ✅ **Start Button (S1):**
+
+| Button Pin | Arduino Pin                               |
+| ---------- | ----------------------------------------- |
+| One side   | Pin 7 (Digital Input with `INPUT_PULLUP`) |
+| Other side | GND                                       |
+
+*Note: Internal pull-up resistor is enabled in code.*
+
+---
+
+### ✅ **Contrast Potentiometer (RPOT1 - 2K Ohm):**
+
+| Potentiometer Pin | Connection            |
+| ----------------- | --------------------- |
+| One side          | 5V                    |
+| Middle (Wiper)    | LCD VO pin (Contrast) |
+| Other side        | GND                   |
+
+---
+
+### ✅ **Power Supply:**
+
+* The Arduino is powered via USB or external 5V adapter.
+* LCD and Pulse Sensor both get 5V and GND from Arduino.
+
+---
+
+## ✅ Summary of Arduino Pin Usage:
+
+| Arduino Pin | Function                                 |
+| ----------- | ---------------------------------------- |
+| Pin 0 to 3  | LCD Data (D4-D7)                         |
+| Pin 5, 6    | LCD Control (E, RS)                      |
+| Pin 7       | Start Button                             |
+| A0          | Pulse Sensor Analog Signal               |
+| 5V, GND     | Power for LCD, Sensor, and Potentiometer |
 
 ---
