@@ -133,3 +133,8 @@ A low-cost, portable heart rate monitor built with Arduino and a 16x2 LCD. This 
 | 5V, GND     | Power for LCD, Sensor, and Potentiometer |
 
 ---
+### License:
+This project is open-source under the MIT License.
+Feel free to modify, improve, and use it for educational and personal projects.
+
+Happy Building!
